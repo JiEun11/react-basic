@@ -10,9 +10,6 @@ const AppMentor = () => {
     },
   });
 
-  const handleMentorName = (changedName) => {
-    setPerson({ ...person, mentor: { name: changedName } });
-  };
   return (
     <div>
       <h1>
@@ -26,7 +23,7 @@ const AppMentor = () => {
           const name = prompt(`what's yoru mentor's name?`);
           setPerson((prev) => ({
             ...prev,
-            mentor: { name: name, title: prev.mentor.title },
+            mentor: { ...prev.mentor, name },
           }));
         }}>
         멘토 이름 바꾸기
@@ -36,7 +33,7 @@ const AppMentor = () => {
           const title = prompt(`what's your mentor's title?`);
           setPerson((prev) => ({
             ...prev,
-            mentor: { name: prev.mentor.name, title: title },
+            mentor: { ...prev.mentor, title },
           }));
         }}>
         멘토 타이틀 바꾸기
