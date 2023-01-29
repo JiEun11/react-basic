@@ -46,25 +46,23 @@ export default function AppMentors() {
       </button>
       <button
         onClick={() => {
-          const addName = prompt(`추가할 멘토의 이름을 입력하세요.`);
-          const addTitle = prompt(`추가할 멘토의 직급을 입력하세요.`);
+          const addName = prompt(`추가할 멘토의 이름은?`);
+          const addTitle = prompt(`추가할 멘토의 직함은?`);
           setPerson((person) => ({
             ...person,
-            mentors: { name: addName, title: addTitle },
+            mentors: [...person.mentors, { name: addName, title: addTitle }], //name, title로 받게되면 그냥 {name, title} 해주면 된다.
           }));
         }}>
         멘토 추가하기
       </button>
       <button
         onClick={() => {
-          const deleteName = prompt(`삭제할 멘토의 이름을 입력하세요.`);
+          const deleteName = prompt(`누구를 삭제하고 싶은가요?`);
           setPerson((person) => ({
             ...person,
-            mentors: person.mentors.filter((mentor) => {
-              if (mentor.name != deleteName) {
-                return mentor;
-              }
-            }),
+            mentors: person.mentors.filter(
+              (mentor) => mentor.name !== deleteName
+            ),
           }));
         }}>
         멘토 삭제하기
