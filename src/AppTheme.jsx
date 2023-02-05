@@ -62,7 +62,6 @@ function ProductDetail() {
         ) : (
           <span>Light Mode</span>
         )}
-        )
       </p>
       <button onClick={() => toggleDarkMode()}>Toggle</button>
     </div>
